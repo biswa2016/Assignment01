@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+</head>
+
+<body>
+    <button class="btn btn-primary mt-5 ml-5" id="gent">Click</button>
+    <h1 id="hello"></h1>
+
+
+    <script>
+
+        //find the largest number
+        let num = [40, 100, 5, 88, 1, 691, 28, 17, 9]
+        function a(num){
+            let lar=num[0]
+            for(let i=1;i<num.length;i++){
+                if(lar<num[i]){
+                    lar=num[i];
+                }
+                
+            }
+            console.log(lar);
+
+        }
+        a(num);
+           // also we can use Math methods
+        let ram=Math.max(num)
+
+        const gretter = (arr) => {
+            let largerNum = arr[0]
+            for (let i = 1; i < arr.length; i++) {
+                if (largerNum < arr[i]) {
+                    largerNum = arr[i]
+                }
+            }
+            console.log(largerNum);
+        }
+
+        gretter(num)
+
+        //find the second lagest number
+
+        const sec = (arr) => {
+            let lag = arr[0]
+            let sed = ''
+            for (let i = 1; i < arr.length; i++) {
+                if (lag < arr[i]) {
+                    sed = lag;
+                    //  console.log(sed);
+                    lag = arr[i]
+                } else if (arr[i] != lag && arr[i] > sed) {
+                    sed = arr[i];
+                    console.log(sed);
+                }
+
+
+            }
+
+        }
+
+        sec(num);
+
+
+        //foctorial of a number
+        let n = 5,
+            ans = 1;
+        const fac = (num) => {
+            for (let i = 2; i <= num; i++) {
+                ans *= i;
+            }
+            console.log(ans);
+
+        }
+        fac(n);
+
+        //4.	Give me Random number using a Function?
+
+        const r = Math.floor(Math.random() * 100)
+        console.log(r);
+
+
+        //5.	Find the Prime numbers in an given array? 
+
+
+        const pop = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        const odd = pop.filter(ele => ele % 2 !== 0)
+        const even = pop.filter((ele, index) => {
+            ele % 2 === 0
+        })
+        console.log(odd);
+        console.log(even);
+        const primeNos = pop.filter(ele => {
+            if (ele <= 1) {
+                return false
+            }
+            let flag = true;
+            for (let i = 2; i <= ele / 2; i++) {
+                if (ele % i === 0) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag === true) {
+                return true;
+            } else {
+                return false
+            }
+        })
+        console.log(primeNos);
+
+
+
+
+        // And Check whether the given number is prime or not?
+
+        let op = -11;
+
+        const prime = (num) => {
+            if (num <= 1) {
+                console.log("not a prime number");
+                return;
+            }
+            let flag = true
+            for (let i = 2; i <= num / 2; i++) {
+                if (num % i === 0) {
+                    flag = false
+                    break;
+                }
+            }
+            if (flag === true) {
+                console.log("number is prime");
+            } else {
+                console.log("number is not prime");
+            }
+
+        }
+
+        prime(op)
+
+
+        //6.	Find the fibonocci series of the given number?
+
+        let f = 5
+        const fib = (num) => {
+            let a = 0,
+                b = 1,
+                c
+            for (let i = 0; i <= num; i++) {
+                console.log(a);
+                c = a + b;
+                a = b;
+                b = c;
+            }
+
+        }
+        fib(f);
+
+
+        //8.	Find whether the given number is Palindrome or not?
+
+        let noon = 121
+        let pali = 0
+        //   let count=1
+        const pal = (num) => {
+            while (num > 0) {
+                let r = num % 10
+                pali = pali * 10 + r
+                num /= 10
+            }
+            if (pali === noon) {
+                console.log("number is a pallindrome number");
+            } else {
+                console.log("is not");
+            }
+        }
+        pal(noon)
+
+
+        // 11.Programmes on Array Destructuring and Object Destructuring.
+
+        let j = ["rama", "lucky", "raj"]
+        let [name, lname, rname] = j
+        console.log(lname);
+
+        let c = {
+            name1: "raj",
+            age: 23,
+            Id: 101
+        }
+
+        let {
+            name1,
+            age,
+            Id
+        } = c
+        console.log(Id);
+
+        //star partten
+
+          let star=()=>{
+            let i,j
+            let s='';
+            for(let i=0;i<=4;i++){
+                for(let j=0;j<i;j++){
+                    s=s+'*'
+                }   
+                s+='\n'
+            }
+            console.log(s);
+        }
+
+        star();
+
+        //7.	Bubble sort programme?
+
+        let arr1 = [7, 8, 4, 9, 5, 3, 6, 1, 2]
+
+        let bubble = (arr) => {
+            console.log('-----------bubble sort---------');
+            for (let i = 0; i < arr.length; i++) {
+                for (let j = 0; j < (arr.length -1- i); j++) {
+                    if(arr[j] > arr[j + 1]){
+                    let temp = arr[j]
+                    arr[j] = arr[j + 1]
+                    arr[j + 1] = temp
+                    }
+                }
+                
+            }
+            console.log(arr);
+        }
+        bubble(arr1);
+        //13.	Generate Id by using a button. Id Should change everytime When we click the button.
+
+        console.log('----button-----');
+
+        let nu=document.getElementById('gent')
+        nu.addEventListener("click",function(min,max){
+         let nums= Math.floor(Math.random()*(110 - 100)+100) ;
+         console.log(nums);
+         let show=document.getElementById("hello").innerHTML=nums
+        //  show.addEventListener
+
+        })
+
+
+
+        //14.Fetch the Data from Json Placeholder and print it.
+
+        let url='https://jsonplaceholder.typicode.com/posts'
+        let fetchpost=()=>{
+        fetch(url).then((response)=>{
+            console.log(response.json());
+        }).catch((fail)=>{
+            console.log(fail,'failed due to some reasons');
+        })
+        }
+        fetchpost()
+         
+
+        // 17.	Store the form values in the Local storage and get the values from local storage.
+
+        console.log("------localstorage------");
+
+        const kop=localStorage.setItem("firstname","biswa")
+        const gname=localStorage.getItem("firstname")
+        console.log(gname);
+
+    </script>
+</body>
+
+</html>
